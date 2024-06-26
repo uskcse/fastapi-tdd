@@ -12,3 +12,13 @@ def test_success_flow(client):
 
     for key in ["id", "created_at", "updated_at"]:
         assert key in response.json()
+    
+def test_invalid_payload(client):
+    response = client.post("posts",json={})
+
+    assert response.status_code == 422
+    
+    assert response.json() == {
+        "details":[{"loc:": ["body", "title"], "msg": "field required", "type": "value_error.missing", "input" : {}},
+        {"loc:": ["body", "description"], "msg": "field required", "type": "value_error.missing", "input" : {}}]
+    }
