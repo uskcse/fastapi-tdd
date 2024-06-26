@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from app.models import Post
-from apps.schemas import PostCreate
+from app.schemas import PostCreate
 
 def create_post(db: Session, request: PostCreate):
     post = Post(** request.model_dump())

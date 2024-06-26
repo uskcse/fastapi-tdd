@@ -1,0 +1,7 @@
+GET: All Post
+GET:/posts
+
+GET: Post by id
+GET:/posts/:id
+
+POST: 
